@@ -37,7 +37,7 @@
     "lodash.isequal": "^4.5.0",
     "lodash.merge": "^4.5.0",
     "parchment": "2.0.0-dev.2",
-    "quill-delta": "4.2.2"
+    "quill-delta": "stigi/delta#stigi/cyclic-dependencies"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -154,6 +154,7 @@
     "build:release": "./_develop/scripts/release.sh",
     "develop": "npm run start",
     "lint": "eslint blots core formats modules themes ui test",
+    "postinstall": "cd ./node_modules/quill-delta && npm install && npm run build"
     "start": "npm run build:webpack; bundle exec foreman start -f _develop/procfile",
     "test": "npm run test:unit",
     "test:all": "npm run test:unit; npm run test:functional",
